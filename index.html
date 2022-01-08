@@ -1,0 +1,421 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" content-language="en-US, en">
+  <meta name="viewport" content="width=device-width, initial-scale=-1">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+  <meta name="description" content= "password generator,random password generator,password, generator, passgen, random" />
+<meta name="robots" content= "index, follow">
+  <title>PassGen by Zalexanninev15</title>
+</head>
+<style>
+  body {
+    font-family: 'Noto Sans', monospace;
+    color: #fff;
+  }
+
+  .bg {
+    width: 100%;
+    height: 100vh;
+    background: #0F3460;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .flex,
+  .flex2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 10px;
+  }
+
+  button {
+    padding: 8px;
+    border: none;
+    outline: none;
+    font-family: 'Noto Sans', monospace, monospace;
+    background: #E94560;
+    box-shadow: .1px .1px 10px #46464A;
+    border-radius: 7px;
+  }
+
+  input {
+    border: none;
+    outline: none;
+    position: relative;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-family: 'Noto Sans', monospace, monospace;
+    font-size: 16px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    animation: bg-ani 1s infinite;
+    transition: all 2s;
+  }
+
+  .passHolder {
+    width: 300px;
+    background: #00000070;
+    font-family: 'Noto Sans', monospace;
+    color: #fff;
+  }
+
+  .check {
+    position: absolute;
+    left: 10%;
+  }
+
+  .inp-flex {
+    display: flex;
+    justify-content: center;
+  }
+
+  .fa-dice-five {
+    font-size: 25px;
+    transition: .5s;
+  }
+
+  .spin {
+    transform: translateY(-1.5px) rotate(180deg);
+  }
+
+  .exc {
+    height: 50vh;
+  }
+
+  .setting {
+    width: 300px;
+    height: 325px;
+    background: #16213E;
+    position: fixed;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  #rangeVal {
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.5);
+    animation: bg-ani 1s infinite;
+    transition: all 2s;
+    padding: 0 5px 0 5px;
+    max-width: 20px;
+    position: absolute;
+    top: 27%;
+    left: 45%;
+  }
+  
+    .rangeA {
+      margin: 0 0 15px 0;
+    }
+    
+  .centerSet {
+    display: flex;
+    justify-content: center;
+  }
+
+  .img {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: -111;
+  }
+
+  input[type="radio"] {
+    min-height: 20px;
+    margin: 0px 0 0px 5px;
+  }
+
+  label {
+    margin: 10px 0 10px 0;
+  }
+   a {
+     color: #f00;
+   }
+  
+  .checkbox {
+    margin: 10px 0 10px 0;
+    top: 60%;
+  }
+</style>
+<body>
+  
+  <div class="bg">
+    <img src=".jpg" class="img">
+    <h1>
+      <h1 class="tex">PassGen by Zalexanninev15</h1>
+    </h1>
+    <div class="flex">
+      <button id="buttonDice">
+        <i class="fas fa-dice-five" id="spin"></i>
+      </button>
+    </div>
+
+    <div class="inp-flex">
+      <input type="text" value="" id="passValue" placeholder="Password" class="passHolder">
+    </div>
+
+    <div class="flex2">
+      <button class="button" id="buttonCopy">
+        <i class="fa fa-clone"></i>
+      </button>
+    </div>
+    <div class="centerSet">
+      <div class="setting">
+        <div class="length">
+          <br>Length<br>
+          <input type="range" value="16" id="inp" max="30" min="06" class="rangeA"><br>
+          <span id="rangeVal">16</span>
+        </div>
+        <div class="line"></div>
+        <div class="checkbox">
+          <input type="radio" id="symCheck" name="set" class="check" value="Symbols">
+          <label for="symCheck">
+            Symbols
+          </label>
+        </div>
+        <div class="line"></div>
+        <div class="checkbox">
+          <input type="radio" id="lowerCheck" name="set" class="check">
+          <label for="lowerCheck">
+            Only lowercase
+          </label>
+        </div>
+       <div class="line"></div>
+        <div class="checkbox">
+          <input type="radio" id="upperCheck" name="set" class="check">
+          <label for="upperCheck">
+            Only uppercase
+          </label>
+        </div>
+        <div class="line"></div>
+        <div class="checkbox">
+          <input type="radio" id="lowSym" name="set" class="check">
+          <lable for="lowSym" id="alert">
+            Lowercase & symbols
+          </lable>
+        </div>
+        <div class="line"></div>
+        <div class="checkbox">
+          <input type="radio" id="upSym" name="set" class="check">
+          <label for="upSym">
+            Uppercase & symbols
+            </lable>
+        </div>
+        <div class="line"></div>
+        <div class="checkbox">
+          <input type="radio" id="numOn" name="set" class="check">
+          <label for="numOn">
+            Only numbers
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var passInp = document.getElementById("passValue");
+    var diceCl = document.getElementById("buttonDice");
+    var buttonCopy = document.getElementById("buttonCopy");
+    var dice = document.getElementById("spin");
+    var inp = document.getElementById("inp");
+    var rangeMeter = document.getElementById("rangeVal");
+    var symCheck = document.getElementById("symCheck");
+    var lowCheck = document.getElementById("lowerCheck");
+    var lowSym = document.getElementById("lowSym");
+    var upSym = document.getElementById("upSym");
+    var numOm = document.getElementById("numOm");
+    var upCheck = document.getElementById("upperCheck");
+    inp.oninput = popRange;
+
+    var al = document.getElementById("alert");
+
+    al.onclick = function() {
+      lowSym.checked = true;
+    }
+
+    function popRange() {
+      if (inp.value == 06) {
+        rangeMeter.innerHTML = "0" + 6;
+      }
+      else if (inp.value == 07) {
+        rangeMeter.innerHTML = "0" + 7;
+      }
+      else if (inp.value == 08) {
+        rangeMeter.innerHTML = "0" + 8;
+      }
+      else if (inp.value == 09) {
+        rangeMeter.innerHTML = "0" + 9;
+      }
+      else if (inp.value == 10) {
+        rangeMeter.innerHTML = 10;
+      }
+      else if (inp.value == 11) {
+        rangeMeter.innerHTML = 11;
+      }
+      else if (inp.value == 12) {
+        rangeMeter.innerHTML = 12;
+      }
+      else if (inp.value == 13) {
+        rangeMeter.innerHTML = 13;
+      }
+      else if (inp.value == 14) {
+        rangeMeter.innerHTML = 14;
+      }
+      else if (inp.value == 15) {
+        rangeMeter.innerHTML = 15;
+      }
+      else if (inp.value == 16) {
+        rangeMeter.innerHTML = 16;
+      }
+      else if (inp.value == 17) {
+        rangeMeter.innerHTML = 17;
+      }
+      else if (inp.value == 18) {
+        rangeMeter.innerHTML = 18;
+      }
+      else if (inp.value == 19) {
+        rangeMeter.innerHTML = 19;
+      }
+      else if (inp.value == 20) {
+        rangeMeter.innerHTML = 20;
+      }
+      else if (inp.value == 21) {
+        rangeMeter.innerHTML = 21;
+      }
+      else if (inp.value == 22) {
+        rangeMeter.innerHTML = 22;
+      }
+      else if (inp.value == 23) {
+        rangeMeter.innerHTML = 23;
+      }
+      else if (inp.value == 24) {
+        rangeMeter.innerHTML = 24;
+      }
+      else if (inp.value == 25) {
+        rangeMeter.innerHTML = 25;
+      }
+      else if (inp.value == 26) {
+        rangeMeter.innerHTML = 26;
+      }
+      else if (inp.value == 27) {
+        rangeMeter.innerHTML = 27;
+      }
+      else if (inp.value == 28) {
+        rangeMeter.innerHTML = 28;
+      }
+      else if (inp.value == 29) {
+        rangeMeter.innerHTML = 29;
+      }
+      else if (inp.value == 30) {
+        rangeMeter.innerHTML = 30;
+      }
+    }
+
+    function genr() {
+      var pass = '';
+
+      var digit;
+      if (lowCheck.checked == true) {
+        digit = "abcdefghijklmnopqrstuvwxyz11223344556677889900";
+
+        for (i = 1; i <= inp.value; i++) {
+          var char = Math.floor(Math.random() * digit.length + 1);
+
+          pass += digit.charAt(char);
+        }
+      }
+      else if (symCheck.checked == true) {
+        digit += "@@@###&&&___---((()))===%%%***''':::///!!!???+++...~~~<<<>>>÷÷÷" + "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz11223344556677889900";
+        for (i = 1; i <= inp.value; i++) {
+          var char = Math.floor(Math.random() * digit.length + 1);
+
+          pass += digit.charAt(char);
+        }
+      }
+      else if (upSym.checked == true) {
+        digit = "ABCDEFGHIJKLMNOPQRSTUVWXYZ11223344556677889900" + "@@@###&&&___---((()))===%%%***''':::///!!!???+++...~~~<<<>>>÷÷÷";
+        for (i = 1; i <= inp.value; i++) {
+          var char = Math.floor(Math.random() * digit.length + 1);
+
+          pass += digit.charAt(char);
+        }
+      }
+      else if (upCheck.checked == true) {
+        digit = "ABCDEFGHIJKLMNOPQRSTUVWXYZ11223344556677889900";
+        for (i = 1; i <= inp.value; i++) {
+          var char = Math.floor(Math.random() * digit.length + 1);
+
+          pass += digit.charAt(char);
+        }
+      }
+      else if (lowSym.checked == true) {
+        digit = "abcdefghijklmnopqrstuvwxyz11223344556677889900" + "@@@@----____====####";
+        for (i = 1; i <= inp.value; i++) {
+          var char = Math.floor(Math.random() * digit.length + 1);
+
+          pass += digit.charAt(char);
+        }
+      }
+      else if (numOn.checked == true) {
+        digit = "1234567890";
+        for (i = 1; i <= inp.value; i++) {
+          var char = Math.floor(Math.random() * digit.length + 1);
+
+          pass += digit.charAt(char);
+        }
+      }
+      else if (symCheck.checked == false || lowCheck.checked == false || upSym.checked == false || lowSym.checked == false || numOn.checked == false) {
+        digit = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz11223344556677889900"
+        for (i = 1; i <= inp.value; i++) {
+          var char = Math.floor(Math.random() * digit.length + 1);
+          pass += digit.charAt(char);
+        }
+      }
+      return pass;
+    }
+
+
+    diceCl.onclick = function() {
+      passInp.value = genr();
+      dice.classList.toggle("spin");
+    }
+
+    buttonCopy.onclick = function() {
+      if(passInp.value == '') {
+        alert("Generate a password first");
+      }
+     else if(confirm("Do you want to copy:" + " " + passInp.value)){
+        var copyText = passInp;
+        copyText.select();
+        copyText.setSelectionRange(0, 9999);
+        document.execCommand("copy");
+
+        alert("Copied: " + passInp.value);
+      }
+    }
+
+    function extendPrivacy() {
+      document.getElementById("main-box").classList.toggle("exc");
+    }
+  </script>
+</body>
+</html>
