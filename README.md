@@ -6,5 +6,9 @@
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![](https://img.shields.io/badge/donate-Buy_Me_a_Coffee-F94400.svg)](https://zalexanninev15.jimdofree.com/buy-me-a-coffee)
 
+## Screenshot
+
+![image](https://user-images.githubusercontent.com/51060911/148643936-df6fbc9a-fad2-4ef8-8328-b83b5825b3e6.png)
+
 ## Description
 Password generator, my first web app
