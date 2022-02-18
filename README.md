@@ -13,3 +13,8 @@
 
 ## Description
 Password generator, my first web app
+
+## Features
+
+- Flexible system of password generator settings (you can customize the password length, ability to include in the password: characters, possibility to include only letters in specific case, letters in specific case and symbols, numbers only)
+- Nice and easy to use UI with some animations (animations and icons may not display in all browsers, if you know what the problem is - post [here](https://github.com/Zalexanninev15/PassGen/issues/new))
