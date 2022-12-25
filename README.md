@@ -1,4 +1,4 @@
-# PassGen | 🔥[Run](https://zalexanninev15.github.io/PassGen)
+# PassGen / [Launch ▶️](https://zalexanninev15.github.io/PassGen) 
 
 [![](https://img.shields.io/badge/platforms-All_with_Internet-27282D.svg)](https://github.com/Zalexanninev15/PassGen)
 [![](https://img.shields.io/badge/written_on-HTML-E34F26.svg?logo=html5)](https://github.com/Zalexanninev15/PassGen)
